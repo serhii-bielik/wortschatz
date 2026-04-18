@@ -1,6 +1,7 @@
 import { prisma } from '@/lib/prisma'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
+import StudyMode from '@/components/StudyMode'
 
 type Props = {
   params: Promise<{ slug: string }>
@@ -46,6 +47,11 @@ export default async function CategoryPage({ params }: Props) {
             )}
           </div>
         ))}
+      </div>
+      
+      <div className="mt-8">
+        <h2 className="text-xl font-semibold mb-4">Режим изучения</h2>
+        <StudyMode words={category.words} />
       </div>
     </main>
   )
